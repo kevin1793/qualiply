@@ -1,24 +1,28 @@
 import logo from './logo.svg';
 import './App.css';
 
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+
+// Import your components
+import HomePage from './pages/HomePage';
+// import AboutPage from '.pages/AboutPage';
+// import NotFoundPage from '.pages/NotFoundPage';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div>
+        <Routes>
+          {/* Define your routes here */}
+          <Route path="/" element={<HomePage />} />
+          {/* <Route path="/about" element={<AboutPage />} /> */}
+          
+          {/* Redirect to default page or handle 404 */}
+          {/* <Route path="/404" element={<NotFoundPage />} /> */}
+          <Route path="*" element={<Navigate to="/" />} /> This sets the default route
+        </Routes>
+      </div>
+    </Router>
   );
 }
 
