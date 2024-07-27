@@ -1,4 +1,8 @@
-// Job List
+// Job List Component
+
+import React, { useState, useEffect } from 'react';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { firestore } from '../firebase';
 
 import { FaMoneyBill } from "react-icons/fa";
 import { FaLocationArrow } from "react-icons/fa";
@@ -6,36 +10,65 @@ import { FaSearch } from "react-icons/fa";
 import { FaAt } from "react-icons/fa";
 import { FaUserCog } from "react-icons/fa";
 
+// import { useLocation } from 'react-router-dom';
+
 const JobListComponent = () => {
-  // Example data
-  const data = [
-    { id: 1, title: 'React Frontend Developer',company:'Amazon',pay:'$120,000',
-     description: 'lorem Ipsum',workLocation:'remote',skills:['React','HTML','CSS','JS'],
-     workType:'fulltime',location:'Dallas, TX' ,levels:['Junior','Mid','Senior']
-    },
-    { id: 2, title: 'Angular Frontend Developer',
-      company:'Amazon', description: 'lorem Ipsum',
-      workLocation:'remote',workType:'contract',pay:'$50/hr',contractLength:'6 months',skills:['React','HTML','CSS','JS'],
-      location:'Dallas, TX'  ,levels:['Junior','Senior']
-    },
-    { id: 3, title: 'Angular Frontend Developer',
-      company:'Amazon', description: 'lorem Ipsum',
-      workLocation:'remote',workType:'contract',pay:'$50/hr',contractLength:'6 months',skills:['React','HTML','CSS','JS'],
-      location:'Dallas, TX'  ,levels:['Junior','Mid','Senior']
-    },
-    { id: 4, title: 'Angular Frontend Developer',
-      company:'Amazon', description: 'lorem Ipsum',
-      workLocation:'remote',workType:'contract',pay:'$50/hr',contractLength:'6 months',skills:['React','HTML','CSS','JS'],
-      location:'Dallas, TX'  ,levels:['Junior']
-    },
-    { id: 5, title: 'Angular Frontend Developer',
-      company:'Amazon', description: 'lorem Ipsum',
-      workLocation:'remote',workType:'contract',pay:'$50/hr',contractLength:'6 months',skills:['React','HTML','CSS','JS'],
-      location:'Dallas, TX'  ,levels:['Junior','Mid','Senior','JS']
-    },
-    // { id: 2, name: 'Jane Smith', age: 25 },
-    // { id: 3, name: 'Alice Johnson', age: 35 },
-  ];
+  const [data, setData] = useState([]);
+
+  const url = new URL(window.location.href);
+  const params = new URLSearchParams(url.search);
+  const queryObject = {};
+
+
+  useEffect(() => {
+    console.log('url',url)
+    var searchArr = url.search.split('?');
+    console.log('searchArr',searchArr)
+
+    var titleSearch = '';
+
+    for(var i in searchArr){
+      if(searchArr[i].length){
+        var searchItem = searchArr[i].split('=')[0];
+        var searchValue = searchArr[i].split('=')[1].replaceAll('%20','');
+        if(searchItem && searchValue){
+          if(searchItem == 'job'){
+            titleSearch = searchValue.toLowerCase();
+          }
+        }
+      }
+    }
+    console.log('titleSearch',titleSearch)
+    const fetchData = async () => {
+      try {
+        // Create a query with a filter condition
+        // const q = query(collection(firestore, 'jobPosts'), where('age', '>=', filterAge));
+        var q;
+        if(titleSearch){
+          //  q = query(collection(firestore, 'jobPosts'), where('search', '>=', titleSearch));
+
+           q = query(
+            collection(firestore, 'jobPosts'),
+            where('search', '>=', titleSearch),
+            where('search', '<', titleSearch + '\uf8ff') // Ensures the range includes all strings starting with titlePrefix
+          );
+        }else{
+           q = query(collection(firestore, 'jobPosts'));
+        }
+        const querySnapshot = await getDocs(q);
+        const dataList = querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+        console.log('dataList',dataList)
+        setData(dataList);
+      } catch (error) {
+        console.error("Error fetching data: ", error);
+      }
+    };
+
+    fetchData();
+  }, []);
+  const parseItems = (itemsString) => {
+    return itemsString.split(',').map(item => item.trim());
+  };
 
 
   return (
@@ -49,25 +82,31 @@ const JobListComponent = () => {
                 <h3>{job.company}</h3>
                 <div className="locationLine">
                 <FaAt />   
-                <button className="skillsButtonWide" >{job.location} </button> <button className='skillsButtonWide capitalize-text'>{job.workLocation}</button>
+                <button className="skillsButtonWide" >{job.location} </button> <button className='skillsButtonWide capitalize-text'>{job.workLocationType}</button>
                 </div>
               </div>                   
               {/* <p>{job.description}</p> */}
               <div className="jobLine">
-                <span className="jobIcon"><FaMoneyBill /></span><button className="skillsButtonWide">{job.pay}</button><button className="skillsButtonWide  capitalize-text">{job.workType}</button>
+                <span className="jobIcon"><FaMoneyBill /></span><button className="skillsButtonWide">{job.pay?job.pay:'???'}</button><button className="skillsButtonWide  capitalize-text">{job.workType}</button>
               </div>
               {/* <div className="jobLine">
                 <span className="jobIcon" ><FaLocationArrow /></span><span>{job.location} | <span className='capitalize-text'>{job.workLocation}</span></span>
               </div> */}
-              <div className="jobLine">
+              {/* <div className="jobLine">
                 <span className="jobIcon " ><FaSearch /></span>
                 {job.skills.map((skill, index) => (
                   <button className="skillsButton" key={index}>{skill}</button>
                 ))}
+              </div> */}
+              <div className="jobLine">
+                <span className="jobIcon " ><FaSearch /></span>
+                {parseItems(job.skills).map((level, index) => (
+                  <button className="skillsButton" key={index}>{level}</button>
+                ))}
               </div>
               <div className="jobLine">
                 <span className="jobIcon " ><FaUserCog /></span>
-                {job.levels.map((level, index) => (
+                {parseItems(job.levels).map((level, index) => (
                   <button className="skillsButton" key={index}>{level}</button>
                 ))}
               </div>

@@ -1,17 +1,42 @@
-/* NAVBAR COMPONENT */
-.NavBarWrapper{
-  border-bottom:1px #666 solid;
-  padding:10px;
-  justify-content: center;
+/* FONT */
+.freeman-regular {
+  font-family: "Freeman", sans-serif;
+  font-weight: 400;
+  font-style: normal;
 }
-.navBarCont{
-  max-width: 1200px;
-  margin:0 auto;
 
+*{
+  font-family: "Nunito", sans-serif;
 }
-.NavBarWrapper h1{
-  font-weight: bold;
-  margin:0
+
+input,textarea{
+  border:none;
+  padding:8px 20px;
+  margin:5px;
+  border-radius: 15px;
+}
+button{
+  border:none;
+  padding:5px 10px;
+  margin:5px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.radioLine{
+  display: flex;
+  justify-content: left;
+  width: 100px;
+  margin:0 auto;
+}
+.radioLine input{
+  margin:0 !important;
+  margin-right:10px !important;
+  margin-bottom: 10px !important;
+}
+.radioLine label{
+  color: white;
+  margin-bottom: 10px !important;
 }
 
 /*  */
@@ -34,7 +59,7 @@
   margin-bottom:5px;
 }
 .infoCont h3{
-  margin-top:0;
+  margin-top:8px;
   margin-bottom:0;
 }
 .capitalize-text {
@@ -53,7 +78,7 @@
 .skillsButton{
   color: white;
   background:green;
-  padding:2px 3px;
+  padding:5px 3px;
   margin-right:5px;
   border-radius: 5px;
   border:none;
@@ -78,7 +103,7 @@
   margin-right:10px;
   margin-bottom:30px;
 
-  height: 200px;
+  height: 250px;
   /* min-width: 300px !important; */
 }
 .jobLine{
@@ -87,7 +112,7 @@
   margin-bottom: 10px;
 }
 .jobIcon{
-  font-size: 20px;
+  font-size: 24px;
   padding-right: 10px;
 }
 .applyInfoCont{

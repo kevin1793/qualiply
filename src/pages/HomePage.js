@@ -1,6 +1,6 @@
 // src/HomePage.js
 // import React from 'react';
-import JobListComponent from './../components/JobListComponent';
+import HomePageComponent from './../components/HomePageComponent';
 import NavBarComponent from './../components/NavBarComponent';
 
 const HomePage = () => {
@@ -9,7 +9,7 @@ const HomePage = () => {
         <NavBarComponent/>
 
       <div className="jobListCont">
-        <JobListComponent/>
+        <HomePageComponent/>
       </div>
     </div>
   );

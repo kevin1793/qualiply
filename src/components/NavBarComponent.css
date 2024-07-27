@@ -1,0 +1,36 @@
+
+/* NAVBAR COMPONENT */
+.NavBarWrapper{
+  border-bottom:1px #666 solid;
+  padding:20px;
+  justify-content: center;
+}
+.navBarCont{
+  max-width: 1200px;
+  margin:0 auto;
+  display: flex;
+  flex-wrap: wrap;
+}
+.navBtnCont{
+  margin-left: auto;
+}
+.NavBarWrapper h1{
+  font-weight: bold;
+  margin:0;
+  font-family: "Edu AU VIC WA NT Hand", cursive;
+
+}
+.navBtnCont button{
+  background-color: #005695;
+  color: white;
+  width: 100px;
+  font-size: 16px;
+}
+
+.navIconCont{
+  cursor: pointer;
+}
+
+button{
+  cursor: pointer;
+}

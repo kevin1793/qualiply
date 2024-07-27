@@ -1,0 +1,22 @@
+.homePageCont{
+  justify-content: center;
+  margin:0 auto;
+  background: teal;
+  padding-bottom: 100px;
+}
+
+.homePageTitleCont{
+  padding-top: 50px;
+  text-align: center;
+  color: white;
+}
+
+.homePageSearchCont{
+  text-align: center;
+  margin:0 auto;
+  padding:30px;
+}
+
+.homePageCont button{
+  border-radius: 15px;
+}
