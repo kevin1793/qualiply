@@ -103,7 +103,7 @@ button{
   margin-right:10px;
   margin-bottom:30px;
 
-  height: 250px;
+  min-height: 250px;
   /* min-width: 300px !important; */
 }
 .jobLine{

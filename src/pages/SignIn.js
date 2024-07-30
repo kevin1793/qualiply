@@ -1,13 +1,16 @@
-// src/HomePage.js
+// src/SignInPage.js
 // import React from 'react';
 
-const HomePage = () => {
+const SignInPage = () => {
   return (
-    <div>
-      <h1>Welcome to the Home Page</h1>
-      <p>This is the default page of the application.</p>
+    <div className="homePageWrapper">
+        <NavBarComponent/>
+
+      <div className="jobListCont">
+        <SignInPageComponent/>
+      </div>
     </div>
   );
 };
 
-export default HomePage;
+export default SignInPage;
