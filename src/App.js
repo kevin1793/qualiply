@@ -7,6 +7,9 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import HomePage from './pages/HomePage';
 import JobPage from './pages/JobPage';
 import PostJobPage from './pages/PostJobPage';
+import SignUpPage from './pages/SignUpPage';
+import LoginPage from './pages/LoginPage';
+import ProfilePage from './pages/ProfilePage';
 // import AboutPage from '.pages/AboutPage';
 // import NotFoundPage from '.pages/NotFoundPage';
 
@@ -19,6 +22,9 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/jobs" element={<JobPage />} />
           <Route path="/postjob" element={<PostJobPage />} />
+          <Route path="/login" element={<LoginPage />} />
+          <Route path="/signup" element={<SignUpPage />} />
+          <Route path="/profile" element={<ProfilePage />} />
           {/* <Route path="/about" element={<AboutPage />} /> */}
           
           {/* Redirect to default page or handle 404 */}

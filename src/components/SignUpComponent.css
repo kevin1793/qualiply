@@ -1,0 +1,49 @@
+.signUpCont{
+  text-align: center;
+}
+
+.signUpCont form input{
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: block;
+}
+
+.loginLink a{
+  cursor: pointer;
+}
+
+.signUpCont .radioLine {
+  width: 180px;
+  text-align: left;
+}
+
+.signUpCont input[type ='text'],.signUpCont input[type ='password'] {
+  width:220px;
+}
+
+.signUpPageCont .pageTitleCont p{
+  margin-bottom:50px;
+}
+
+.signUpPageCont button{
+  margin-top:30px;
+  color: teal;
+  font-weight: bold;
+}
+
+.formError{
+  color: red;
+  margin-bottom:0;
+}
+
+.formSuccess{
+  margin-bottom:0;
+}
+
+.spacer{
+  height: 30px;
+}
+.loginLink{
+  margin-top:10px;
+  text-decoration: underline;
+}

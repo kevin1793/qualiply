@@ -7,8 +7,6 @@ import { firestore } from '../firebase';
 
 const PostJobComponent = () => {
 
-  const [data, setData] = useState('');
-
   const [title, setTitle] = useState('');
   const [company, setCompany] = useState('');
   const [pay, setPay] = useState('');
@@ -115,13 +113,13 @@ const PostJobComponent = () => {
             <input type="radio"
             onChange={(e) => setWorkType(e.target.value)} 
              id="workType_fulltime" name="workType" value="Fulltime"></input>
-            <label for="html">Fulltime</label>
+            <label >Fulltime</label>
           </div>
           <div className='radioLine'>
             <input type="radio"
             onChange={(e) => setWorkType(e.target.value)} 
              id="workType_contract" name="workType" value="Contract"></input>
-            <label for="html">Contract</label>
+            <label >Contract</label>
           </div>
           <input
             type="number" 
@@ -144,16 +142,6 @@ const PostJobComponent = () => {
             onChange={(e) => setLevels(e.target.value)} 
             placeholder="Job Levels ex) senior,junior"
           ></input>
-            {/* const [title, setTitle] = useState('');
-            const [company, setCompany] = useState('');
-            const [pay, setPay] = useState('');
-            const [description, setDescription] = useState('');
-            const [workLocationType, setLocationType] = useState('');
-            const [skills, setSkills] = useState([]);
-            const [workType, setWorkType] = useState('');
-            const [location, setLocation] = useState('');
-            const [levels, setLevels] = useState([]); */}
-
           <button type='submit'  onClick={postJob}>Post Job</button>
         </form>
       </div>

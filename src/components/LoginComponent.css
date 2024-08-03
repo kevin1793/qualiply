@@ -1,0 +1,26 @@
+.signUpLink{
+  margin-top:10px;
+  text-decoration: underline;
+}
+
+.pageTitleCont p{
+  margin-bottom: 50px;
+}
+
+.signUpLink a{
+  cursor: pointer;
+}
+
+.loginCont button{
+  margin-top:30px;
+  color: teal;
+  font-weight: bold;
+}
+.loginPageCont input[type ='text'],.loginPageCont input[type ='password'] {
+  width:220px;
+}
+.loginCont form input{
+  margin: 0 auto;
+  margin-bottom: 20px;
+  display: block;
+}
