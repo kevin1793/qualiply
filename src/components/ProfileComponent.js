@@ -9,11 +9,16 @@ import { firestore } from '../firebase';
 
 const ProfilePageComponent = () => {
 
+  const navigate  = useNavigate ();
   const { currentUser, fetching } = useAuth();
 
-  const [document, setDocument] = useState(null);
+  const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(true);
+
+  function navigatePostJob () {
+    navigate('/postjob'); 
+  };
 
   useEffect(() => {
     const fetchDocument = async () => {
@@ -28,7 +33,7 @@ const ProfilePageComponent = () => {
 
         if (!querySnapshot.empty) {
           const doc = querySnapshot.docs[0].data();
-          setDocument(doc);
+          setUser(doc);
           console.log(doc)
         } else {
           console.log('No matching documents.');
@@ -47,6 +52,11 @@ const ProfilePageComponent = () => {
   return (
     <div className="pageCont">
       <div>Welcome Back!</div>
+      {user && user.hiring == 'hiring' &&
+        <div className='hiringCont'>HIRING
+          <button onClick={navigatePostJob}>Add Job Posting</button>
+        </div>
+      }
     </div>
   );
 };

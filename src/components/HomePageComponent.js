@@ -9,7 +9,8 @@ const HomePageComponent = () => {
 
   function handleButtonClick () {
     console.log('jobValue',jobValue);
-    navigate('/jobs?job='+jobValue+'?location='+locationValue); // Navigate to the About page
+    navigate('/jobs?job='+jobValue); // Navigate to the About page
+    // navigate('/jobs?job='+jobValue+'?location='+locationValue); // Navigate to the About page
   };
 
   const [jobValue, setJob] = useState('');
@@ -35,12 +36,13 @@ const HomePageComponent = () => {
           onChange={jobChange} 
           placeholder='Job Title'>
         </input>
-        <input 
+        {/* <input 
           type="text" 
           value={locationValue}
           onChange={locationChange} 
           placeholder="Location or 'remote'"
-        ></input><button  onClick={handleButtonClick}>Search</button>
+        ></input> */}
+        <button  onClick={handleButtonClick}>Search</button>
       </div>
     </div>
   );

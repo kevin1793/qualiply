@@ -1,0 +1,138 @@
+
+.jobListWrapper{
+  padding:10px;
+  background-color: #fff;
+}
+.listBoxCont{
+  max-width: 1300px;
+  display: flex;
+  justify-content: space-evenly;
+  width: 100%;
+  overflow: visible;
+}
+
+.jobBoxListCont{
+  min-width: 45%;
+  width: 100%;
+
+}
+
+.jobInfoBox{
+  min-width: 45%;
+  width: 100%;
+  border-radius: 10px;
+  padding:15px 20px;
+  background: #f2f2f2;
+  box-shadow: 2px 2px 2px #ccc;
+  margin-left: 10px;
+  /* overflow:visible; */
+  /* height: 100vh; */
+}
+
+.jobInfoBox h4{
+  margin-top:5px
+}
+
+.infoBoxTitle{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.infoBoxHeader{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.infoBoxSubheader{
+  font-size: 16px;
+  font-weight: bold;
+}
+.applyInfoCont{
+}
+
+.applyInfoCont{
+  display: flex;
+  justify-content: center;
+  margin: top 25px;
+}
+
+.applyInfoCont button{
+  border: none;
+  /* height: 60px; */
+  border-radius: 5px;
+  padding:10px 20px;
+  background-color: darkcyan;
+  color: white;
+  width: 120px;
+  margin-bottom: 30px;
+  font-weight: bold;
+  font-size: 15px;
+}
+
+.infoCont button{
+  font-size: 12px;
+}
+
+.jobBox{
+  background:white;
+  border-radius: 10px;
+  padding:10px 20px;
+  margin-bottom:10px;
+  min-height: 250px;
+  background: #f2f2f2;
+  box-shadow: 2px 2px 2px #ccc;
+
+}
+
+.infoBoxSection{
+  padding-bottom: 30px;
+}
+.flex{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+}
+
+.fixedTop{
+  position: sticky !important;
+  position: -webkit-sticky;
+  top:20px;
+  margin-top:10px;
+  max-height:90vh;
+  overflow: auto;
+}
+
+.textArrSpace{
+  padding-right:10px;
+}
+
+.left{
+  text-align: left;
+  justify-content: left;
+}
+.mobile{
+  display: none;
+}
+
+@media(max-width:800px){
+  .jobListWrapper{
+    padding:10px;
+  }
+  .jobBox{
+    margin-bottom:10px;
+  }
+}
+
+@media(max-width:700px){
+  .mobile{
+    display: block;
+  }
+  .jobInfoBox{
+    min-width: 100%;
+    padding:0;
+    box-shadow: none;
+  }
+  .desktop{
+    display: none;
+  }
+}

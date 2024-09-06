@@ -15,8 +15,60 @@
   text-align: center;
   margin:0 auto;
   padding:30px;
+  display: flex;
   justify-content: center;
   max-width: 800px;
+}
+
+.skillsArrCont{
+  color: white;
+  justify-content: center;
+  width: 100%;
+  display: flex;
+  padding:10px 0px;
+  max-width: 600px;
+  flex-wrap: wrap;
+}
+
+.skillX{
+  margin-left:auto;
+  padding-left:10px;
+  font-size:12px;
+}
+
+.addSkill{
+  margin-bottom:10px;
+  font-size: 13px;
+}
+.skillsArrItem{
+  border: 1px solid #fff;
+  min-width: 100px;
+  cursor: pointer;
+  display: flex;
+  padding:4px 10px;
+  justify-self: center;
+  font-size:14px;
+
+  border-radius: 5px;
+  margin:5px;
+}
+.jobLevel{
+  color: white;
+  margin-bottom: 30px;
+}
+.jobLevel label{
+  width: 100px;
+  margin:0 auto;
+  display: flex;
+}
+.jobLevel div{
+  text-align: center;
+  justify-content: center;
+
+}
+.jobLevel input{
+  width: 20px;
+  /* margin-right:auto */
 }
 
 .homePageCont button{
@@ -27,5 +79,22 @@
   display: block;
   margin:0 auto;
   margin-bottom: 10px;
-  width: 200px;
+  width: 300px;
+}
+
+.postJobSearchCont select{
+  width: 340px !important;
+  margin-bottom:20px;
+}
+
+.postJobSearchCont textarea{
+  height:300px;
+}
+
+.errorBox{
+  margin-top:15px;
+  color: red;
+  border: 1px solid red;
+  padding: 15px 0px;
+  /* background-color: white; */
 }
